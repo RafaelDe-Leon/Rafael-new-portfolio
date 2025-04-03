@@ -48,7 +48,6 @@ export function Hero() {
       {/* Background elements */}
       <div className='absolute -top-40 -right-40 h-[500px] w-[500px] rounded-full bg-primary/5 blur-3xl' />
       <div className='absolute -bottom-40 -left-40 h-[500px] w-[500px] rounded-full bg-primary/5 blur-3xl' />
-      <h1>test test</h1>
     </section>
   )
 }
