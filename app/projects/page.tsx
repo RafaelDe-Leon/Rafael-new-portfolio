@@ -1,3 +1,4 @@
+'use client'
 import { Navbar } from '@/components/navbar'
 import { Footer } from '@/components/footer'
 import { BackToTop } from '@/components/back-to-top'
@@ -10,40 +11,7 @@ import { Button } from '@/components/ui/button'
 import { Card } from '@/components/ui/card'
 import { Badge } from '@/components/ui/badge'
 
-// Use the same project IDs as in your detail page
-const projects = [
-  {
-    id: 'project-1',
-    title: 'Nagle Parking',
-    description:
-      'A full-stack e-commerce platform built with Next.js, TypeScript, and Tailwind CSS.',
-    image: '/placeholder.svg?height=600&width=800',
-    tags: ['Next.js', 'TypeScript', 'Tailwind CSS', 'Stripe', 'Prisma'],
-  },
-  {
-    id: 'project-2',
-    title: 'Task Management App',
-    description:
-      'A collaborative task management application that helps teams organize and track their projects.',
-    image: '/placeholder.svg?height=600&width=800',
-    tags: ['React', 'Node.js', 'Express', 'MongoDB', 'Socket.io'],
-  },
-  {
-    id: 'project-3',
-    title: 'Weather Dashboard',
-    description:
-      'A weather dashboard that displays current and forecasted weather data for multiple locations.',
-    image: '/placeholder.svg?height=600&width=800',
-    tags: ['JavaScript', 'Chart.js', 'API Integration', 'CSS Grid'],
-  },
-  {
-    id: 'project-4',
-    title: 'Portfolio Website',
-    description: 'A personal portfolio website showcasing my projects and skills.',
-    image: '/placeholder.svg?height=600&width=800',
-    tags: ['Next.js', 'Tailwind CSS', 'Framer Motion', 'Responsive Design'],
-  },
-]
+import projectsData from '@/data/project'
 
 export default function ProjectsPage() {
   return (
@@ -68,7 +36,7 @@ export default function ProjectsPage() {
         </div>
 
         <div className='grid gap-8 md:gap-12'>
-          {projects.map(project => (
+          {projectsData.map(project => (
             <Card key={project.id} className='overflow-hidden'>
               <div className='grid md:grid-cols-2 gap-6'>
                 <div className='relative h-64 md:h-full'>
@@ -94,9 +62,9 @@ export default function ProjectsPage() {
                     <p className='text-muted-foreground mb-4'>{project.description}</p>
                   </div>
                   <div className='mt-auto'>
-                    <Link href={`/projects/${project.id}`}>
+                    {/* <Link href={`/projects/${project.id}`}>
                       <Button>View Project Details</Button>
-                    </Link>
+                    </Link> */}
                   </div>
                 </div>
               </div>

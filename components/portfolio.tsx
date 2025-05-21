@@ -2,33 +2,13 @@ import { Card, CardContent } from '@/components/ui/card'
 import Image from 'next/image'
 import Link from 'next/link'
 
+import projectsData from '@/data/project'
+
 export function Portfolio() {
-  const projects = [
-    {
-      id: 'project-1', // Match the ID format in your project detail page
-      title: 'Nagle Parking',
-      image: '/placeholder.svg?height=600&width=800',
-      description: 'A parking management system with real-time availability tracking.',
-    },
-    {
-      id: 'project-2', // Match the ID format in your project detail page
-      title: 'Borobabi',
-      image: '/placeholder.svg?height=600&width=800',
-      description: 'An e-commerce platform focused on sustainable fashion.',
-    },
-    {
-      id: 'project-3', // Match the ID format in your project detail page
-      title: 'Gaia Player',
-      image: '/placeholder.svg?height=600&width=800',
-      description: 'A media player application with advanced customization options.',
-    },
-    {
-      id: 'project-4', // Match the ID format in your project detail page
-      title: 'Appointa',
-      image: '/placeholder.svg?height=600&width=800',
-      description: 'An appointment scheduling system for businesses and professionals.',
-    },
-  ]
+  const projects = projectsData
+  const featuredProjects = projectsData.filter(project => project.featured)
+
+  console.log(featuredProjects)
 
   return (
     <section id='portfolio' className='py-20 bg-muted/30'>
@@ -39,7 +19,7 @@ export function Portfolio() {
         </div>
 
         <div className='grid grid-cols-1 md:grid-cols-2 gap-6 lg:gap-10'>
-          {projects.map(project => (
+          {featuredProjects.map(project => (
             <Link href={`/projects/${project.id}`} key={project.id} className='group'>
               <Card className='overflow-hidden border-0 bg-background shadow-lg transition-all duration-300 hover:shadow-xl hover:-translate-y-1'>
                 <div className='relative w-full pt-[56.25%]'>
